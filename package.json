@@ -4,9 +4,17 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "lodash": "^4.17.11",
+    "lodash.isequal": "^4.5.0",
+    "npm": "^6.5.0",
+    "object-is": "^1.0.1",
+    "object.entries": "^1.0.4",
+    "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
+    "react-scripts": "2.1.1",
+    "util": "^0.11.1",
+    "utils": "^0.3.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -25,7 +33,12 @@
   ],
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "enzyme-adapter-react-16": "^1.7.1",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^16.7.0",
+    "enzyme": "^3.8.0"
+  },
   "author": "",
   "license": "ISC"
 }

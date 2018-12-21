@@ -191,7 +191,7 @@ export default class App extends Component{
                  <Button onClick = {()=>onDismiss(item.objectID)}
                   className="button-inline"
                  >
-                   Dismiss 
+                   Dismiss
                   </Button>
                </span>
              </div>
@@ -214,4 +214,11 @@ export default class App extends Component{
         {children}
         </button>
      );
+ }
+
+ //export components to be tested
+ export{
+   Search,
+   Table,
+   Button
  }
