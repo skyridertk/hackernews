@@ -73,23 +73,7 @@ export default class App extends Component{
 
   setSearchTopStories(result){
     const { hits, page } = result;
-    const { searchKey, results }=this.state;
-
-    const oldhits = results && results[searchKey]? results[searchKey].hits: [];
-
-    const updatedHits = [
-      ...oldhits,
-      ...hits
-    ];
-
-    this.setState({
-      results: {
-        ...results, 
-        [searchKey]: {hits: updatedHits, page}
-      },
-      isLoading: false
-    });
-
+    this.setState(updatedSearchTopStoriesState(hits, page));
   }
 
   fetchSearchTopStories(searchTerm, page=0){
@@ -177,6 +161,26 @@ export default class App extends Component{
     );
   }
 }
+
+const updatedSearchTopStoriesState = (hits, page) => (prevState) =>{
+      
+    const { searchKey, results }=prevState;
+
+    const oldhits = results && results[searchKey]? results[searchKey].hits: [];
+
+    const updatedHits = [
+      ...oldhits,
+      ...hits
+    ];
+
+    return {
+      results: {
+        ...results, 
+        [searchKey]: {hits: updatedHits, page}
+      },
+      isLoading: false
+    };
+};
  const Search = ({ value, onChange, onSubmit, children }) =>{
      return(
       <form onSubmit={onSubmit}>
@@ -318,9 +322,9 @@ const Sort = ({sortKey, onSort, activeSortKey, children})=>{
 
 const withLoading = (Component) => ({isLoading, ...rest}) =>{
     return (isLoading?<Loading />: <Component {...rest} />);
-  };
+};
 
-  const ButtonWithLoading = withLoading(Button);
+const ButtonWithLoading = withLoading(Button);
 
  //export components to be tested
  export{
